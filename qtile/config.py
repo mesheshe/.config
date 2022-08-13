@@ -74,6 +74,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod, "shift"], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Backlight controls
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-"), desc="Lowers screen brightness"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%"), desc="Increases screen brightness")
@@ -146,7 +147,9 @@ screens = [
                 widget.Systray(),
                 widget.BatteryIcon(),
                 widget.Battery(format='{percent:2.0%}'),
-                widget.Clock(),
+                widget.Clock(
+                        format="%B %d - %H:%M",
+                    ),
                 widget.QuickExit(),
             ],
             24,
