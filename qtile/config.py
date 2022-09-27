@@ -149,6 +149,7 @@ screens = [
                 widget.Battery(format='{percent:2.0%}'),
                 widget.Clock(
                         format="%B %d - %H:%M",
+                        timezone=None,
                     ),
                 widget.QuickExit(),
             ],
@@ -156,6 +157,19 @@ screens = [
             border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             border_color=["ffffff", "ffffff", "ffffff", "ffffff"],  # Borders are magenta
             margin=[0,6,0,6],
+            opacity=0.65,
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.WindowName()
+            ],
+            24,
+            border_width=[2, 0, 2, 0],
+            border_color=["ffffff", "ffffff", "ffffff", "ffffff"],
+            margin=[0, 6, 0, 6],
             opacity=0.65,
         ),
     ),
